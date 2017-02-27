@@ -30,7 +30,7 @@
 .auto-resizable-iframe {
    max-width: 469px; 
   /*margin: 0px auto;*/
-  background-color: red;
+  background-color: black;
 }
 
 .auto-resizable-iframe > div {
@@ -182,7 +182,7 @@
             var elt = $(slick.$slides.get(currentSlide)); //.children('img').attr('data-timestamp');
             var seconds = elt.data("timestamp");
             console.log("Jumping to: " + seconds + " seconds");
-            // player.seekTo(seconds, true);
+            player.seekTo(seconds, true);
             // player.playVideo();
         });
 

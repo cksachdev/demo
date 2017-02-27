@@ -68,11 +68,4 @@ var options = [{
     "fullImage": "images/opt5.png",
     "heading": "Fifth item",
     "description": "fifth item description"
-},{
-    "bigImage": "images/opt1-big.png",
-    "thumbnail": "images/opt5.png",
-    "timestamp": 600,
-    "fullImage": "images/opt5.png",
-    "heading": "Fifth item",
-    "description": "fifth item description"
 }];
