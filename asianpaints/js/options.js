@@ -43,28 +43,28 @@ var options = [{
 }, {
     "thumbnail": "images/opt2.png",
     "bigImage": "images/opt1-big.png",
-    "timestamp": 420,
+    "timestamp": 60,
     "fullImage": "images/opt2.png",
     "heading": "Second item",
     "description": "second item description"
 }, {
     "bigImage": "images/opt1-big.png",
     "thumbnail": "images/opt3.png",
-    "timestamp": 480,
+    "timestamp": 120,
     "fullImage": "images/opt3.png",
     "heading": "Third item",
     "description": "third item description"
 }, {
     "bigImage": "images/opt1-big.png",
     "thumbnail": "images/opt4.png",
-    "timestamp": 540,
+    "timestamp": 180,
     "fullImage": "images/opt4.png",
     "heading": "Fourth item",
     "description": "Fourth item description"
 }, {
     "bigImage": "images/opt1-big.png",
     "thumbnail": "images/opt5.png",
-    "timestamp": 600,
+    "timestamp": 240,
     "fullImage": "images/opt5.png",
     "heading": "Fifth item",
     "description": "fifth item description"

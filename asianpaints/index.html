@@ -182,7 +182,7 @@
             var elt = $(slick.$slides.get(currentSlide)); //.children('img').attr('data-timestamp');
             var seconds = elt.data("timestamp");
             console.log("Jumping to: " + seconds + " seconds");
-            player.seekTo(seconds, true);
+            player.seekTo(seconds, false);
             // player.playVideo();
         });
 
