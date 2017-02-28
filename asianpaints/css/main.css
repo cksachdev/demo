@@ -72,7 +72,7 @@ main {
     box-shadow: 1px 7px 13px 0.3px rgba(45, 45, 45, 0.27);
     background-color: rgb(255, 255, 255);
     /*box-shadow: 2.5px 4.33px 5.7px 0.3px rgba(45, 45, 45, 0.27);*/
-    width: 469px;
+    max-width: 469px;
     height: 150px;
 }
 
@@ -103,7 +103,7 @@ main {
     position: relative;
     /*background-color: #e15915;*/
     /*height:469px !important;*/
-    width: 469px !important;
+    max-width: 469px;
 }
 
 
