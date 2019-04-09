@@ -7,24 +7,42 @@
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <!-- Contains Sugar, jQuery, jQuery.my -->
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.css" />
 
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-sliderAccess.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
     <script src="js/lib/minimal.js"></script>
     <!-- Contains different rich ui plugins -->
     <script src="js/lib/plugins.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-sliderAccess.js"></script>
-
-
 
     <style>
         .my-manifest-19b0h96i #list>div {
             width: 100% !important;
+        }
+        
+        .container {
+            width: 23%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            display: block;
+            min-height: 48px;
+            clear: both;
+            margin: 0.3em 0 0.6em 0;
+            padding-bottom: 0!important;
+        }
+        
+        .section {
+            padding: 4%;
+        }
+        
+        .delete-mark {
+            float: right;
+        }
+        
+        .name-cls {
+            padding-bottom: 5%;
         }
     </style>
 
@@ -32,13 +50,14 @@
 
 <body>
     <div id="form" style="margin:2%">
-
-        <div id="list" class="mb10"></div>
-        <input id="btn-user" type="button" value="Add user">
+        <div class="container">
+            <div id="list" class="mb10"></div>
+            <input id="btn-user" type="button" value="Add user">
+        </div>
     </div>
 </body>
 <script>
-    $(function () {
+    $(function() {
         // onload
         $("#form").my({
             data: {
@@ -50,34 +69,33 @@
                 "#list": { // List control section
                     bind: "list",
                     list: '<div class="br2"></div>',
-                    init: function ($control) { // Init plugin
+                    init: function($control) { // Init plugin
                         $control.sortable({
                             handle: ".fi-list"
                         });
                     },
-                    manifest: function (item, index, list) {
+                    manifest: function(item, index, list) {
                         console.log(list); // Return manifest for an item
                         return this.Forms[item.type];
                     }
                 },
-                "#btn-user": function (data, val) { // Add user
+                "#btn-user": function(data, val) { // Add user
 
                     if (null != val) this.InsertItem("user");
-                    setTimeout(function () {
+                    setTimeout(function() {
                         $('.timepicker-box').timepicker({
                             timeFormat: "HH:mm:ss:l"
                         });
                     }, 100);
 
-
                 },
-                "#btn-link": function (data, val) { // Add link
+                "#btn-link": function(data, val) { // Add link
                     if (null != val) this.InsertItem("link");
                 }
             },
 
             // Function that inserts an item
-            InsertItem: function (type) {
+            InsertItem: function(type) {
                 this.my.insert(
                     "#list",
                     $.extend(true, {
@@ -94,29 +112,36 @@
                 "user": {
                     data: {
                         type: "user",
+                        name: "",
                         timea: "",
                         timeb: "",
                         repeat: ""
                     },
-                    init: function ($form) {
+                    init: function($form) {
                         $form.html([
+                            '<div class="section">',
+                            '<span class="fi-x red delete-mark"></span>',
                             '<span class="fi-list green"></span> &nbsp;',
-                            '<input id="timea" type="text" placeholder="Enter Time a" class="w180 timepicker-box"> ',
-                            '<input id="timeb" type="text" placeholder="Enter Time b" class="w170 timepicker-box"> ',
-                            '<input id="repeat" type="number" class="w100">',
-                            '<span class="play_box w80">Play</span>',
-                            '<span class="fi-x red o50 pl5"></span>'
+                            '<div class="name-cls"><span><input id="name" class="w270" type="text" placeholder="User login"></span></div>',
+                            '<div class="name-cls"><span><input id="timea" type="text" placeholder="Enter Time a" class="w130 timepicker-box"></span> ',
+                            '<span><input id="timeb" type="text" placeholder="Enter Time b" class="w130 timepicker-box"></span></div> ',
+                            '<div><span><input id="repeat" value="1" type="number" class="w125"></span>',
+                            '<span style="margin: 14%;"><input id="btn-play" type="button" value="play"></span></div>'
                         ].join(""));
                     },
                     ui: {
+                        "#name": "name",
                         "#timea": "timea",
                         "#timeb": "timeb",
                         "#repeat": "repeat",
                         ".fi-x": {
-                            bind: function (data, val) {
+                            bind: function(data, val) {
                                 if (null != val) this.my.remove();
                             },
                             events: "click.my"
+                        },
+                        "#btn-play": function(data, val) { // Add link
+                            console.log(data);
                         }
                     }
                 },
@@ -127,7 +152,7 @@
                         type: "link",
                         link: ""
                     },
-                    init: function ($form) {
+                    init: function($form) {
                         $form.html([
                             '<span class="fi-list orange"></span> &nbsp;',
                             '<input id="link" type="text" placeholder="Link" style="width:355px;"> ',
@@ -137,7 +162,7 @@
                     ui: {
                         "#link": "link",
                         ".fi-x": {
-                            bind: function (data, val) {
+                            bind: function(data, val) {
                                 if (null != val) this.my.remove();
                             },
                             events: "click.my"
@@ -153,6 +178,5 @@
         });
     });
 </script>
-
 
 </html>
