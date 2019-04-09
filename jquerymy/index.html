@@ -22,12 +22,11 @@
         }
         
         .container {
-            width: 23%;
+            width: 26%;
             border: 1px solid #ddd;
             border-radius: 4px;
             overflow: hidden;
             display: block;
-            min-height: 48px;
             clear: both;
             margin: 0.3em 0 0.6em 0;
             padding-bottom: 0!important;
@@ -39,10 +38,11 @@
         
         .delete-mark {
             float: right;
+            margin-top: 2%;
         }
         
         .name-cls {
-            padding-bottom: 5%;
+            padding-bottom: 4%;
         }
     </style>
 
@@ -51,7 +51,7 @@
 <body>
     <div id="form" style="margin:2%">
         <div class="container">
-            <div id="list" class="mb10"></div>
+            <div id="list"></div>
             <input id="btn-user" type="button" value="Add user">
         </div>
     </div>
@@ -117,13 +117,13 @@
                     init: function($form) {
                         $form.html([
                             '<div class="section">',
-                            '<span class="fi-x red delete-mark"></span>',
+                            '<div class="name-cls"><span class="fi-x red delete-mark"></span>',
                             '<span class="fi-list green"></span> &nbsp;',
-                            '<div class="name-cls"><span><input id="name" class="w270" type="text" placeholder="User login"></span></div>',
-                            '<div class="name-cls"><span><input id="timea" type="text" placeholder="Enter Time a" class="w130 timepicker-box"></span> ',
-                            '<span><input id="timeb" type="text" placeholder="Enter Time b" class="w130 timepicker-box"></span></div> ',
-                            '<div><span><input id="repeat" value="1" type="number" class="w125"></span>',
-                            '<span style="margin: 14%;"><input id="btn-play" type="button" value="play"></span></div>'
+                            '<span class="name-cls"><span><input id="name" class="w270" type="text" placeholder="User login"></span></div>',
+                            '<div class="name-cls"><span><input id="timea" type="text" placeholder="Enter Time a" class="w150 timepicker-box"></span> ',
+                            '<span><input id="timeb" type="text" placeholder="Enter Time b" class="w150 timepicker-box" style=" margin-left: 2%; "></span></div> ',
+                            '<div><span><input id="repeat" value="1" type="number" class="w150"></span>',
+                            '<span style="margin-left: 3%;"><input class="w150" id="btn-play" type="button" value="play"></span></div>'
                         ].join(""));
                     },
                     ui: {
@@ -144,8 +144,7 @@
                 },
             },
             style: {
-                " #list>div": "width:400px; border-bottom:1px dotted #aaa;" +
-                    "padding:5px 0 10px 0;margin:5px 0;"
+                " #list>div": "width:400px; border-bottom:1px dotted #aaa;"
             },
             id: "Subform non-uniform list"
         });

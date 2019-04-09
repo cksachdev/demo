@@ -768,7 +768,7 @@ select,
 option,
 button {
   font: 100% '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Segoe UI', Helvetica, Tahoma, Arial, Verdana, Sans-serif;
-  line-height: 1.3em;
+  line-height: 1.1em;
   color: #4d5a6a;
   outline: none!important;
 }
