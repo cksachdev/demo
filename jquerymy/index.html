@@ -40,12 +40,12 @@
       .my-manifest-19b0h96i #list > div {
         width: 100% !important;
       }
-      .ds_display{
-          display: inline-flex;
+      .ds_display {
+        display: inline-flex;
       }
-      #btn-play{
+      #btn-play {
         line-height: 1.1;
-    padding: 0.25em 0.2em 0.35em 0.3em;
+        padding: 0.25em 0.2em 0.35em 0.3em;
       }
 
       .section {
@@ -85,7 +85,7 @@
             // List control section
             bind: "list",
             list: '<div class="br2"></div>',
-            init: function($control,data) {
+            init: function($control, data) {
               // Init plugin
               $control.sortable({
                 handle: ".fi-list"
@@ -156,23 +156,21 @@
                 bind: function(data, val) {
                   if (null != val) this.my.remove();
                 },
-                
+
                 events: "click"
               },
               "#name": {
-				bind: function (d,v) {
-                    console.log(d,v)
-					// if (v!=null) this.my.remove();
-				},
-				events:"keyup.my"
-			},
-              
+                bind: function(data, value, $control) {
+                  console.log("1");
+                  data.name = value.toUpperCase();
+                  return data.name;
+                },
+                events: "keyup.my"
+              },
+
               "#btn-play": function(data, val) {
                 // Add link
                 console.log(data);
-              },
-              myfunc:function(){
-                  alert("1");
               }
             }
           }
