@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+<body>
+    <script id="entry-template" type="text/x-handlebars-template">
+        <h3 class="ui center aligned header">Doubling Grid Container</h3>
+            <div class="ui three column doubling grid container">
+              {{#each fields}}
+              <div class="column"> <label>{{description}}</label>
+              <input type="{{inputType}} " class="ui segment " required="{{required}} "/>
+            </div>
+            {{/each}}
+            </div>
+        </script>
+    <script src="js/jquery-3.3.0.js"></script>
+    <script src="js/handlebars-v4.1.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
