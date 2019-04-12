@@ -8,7 +8,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
     />
     <link
       rel="stylesheet"
@@ -59,6 +59,9 @@
 
       .name-cls {
         padding-bottom: 4%;
+      }
+      .ui-datepicker-current{
+        display: none;
       }
     </style>
   </head>
@@ -166,18 +169,9 @@
                 },
                 events: "keyup.my"
               },
-              "#repeat": {
-                bind: function(data, value, $control) {
-                  data.repeat =parseInt(value)+1;
-                  return data.repeat;
-                },
-                delay:250,
-                events: "keyup.my"
-              },
-
               "#btn-play": function(data, val) {
                 // Add link
-                alert(JSON.stringify(data));
+               // alert(JSON.stringify(data));
               }
             }
           }
