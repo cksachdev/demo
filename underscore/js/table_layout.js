@@ -17,7 +17,7 @@ _data.tableLayout = function () {
         </td>\
         <td>\
         <button class="ui secondary basic button" onclick=showValue(<%= JSON.stringify(val) %>)>show</button>\
-        <button class="ui negative basic button" onclick=deleteRow(<%=key%>)>Negative</button>\
+        <button class="ui negative basic button" onclick=deleteRow(<%=key%>)>Dalete</button>\
         </td>\
     </tr>\
     <% }); %> '
