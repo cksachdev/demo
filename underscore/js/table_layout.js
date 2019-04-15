@@ -16,7 +16,8 @@ _data.tableLayout = function () {
         <%= val.Limit %> \
         </td>\
         <td>\
-        <button class="ui secondary basic button" onclick="citeResponse(<%= JSON.stringify(val) %>)">show</button>\
+        <button class="ui secondary basic button" onclick=showValue(<%= JSON.stringify(val) %>)>show</button>\
+        <button class="ui negative basic button" onclick=deleteRow(<%=key%>)>Negative</button>\
         </td>\
     </tr>\
     <% }); %> '

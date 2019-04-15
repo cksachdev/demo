@@ -3,6 +3,13 @@ $( document ).ready(function() {
     $('#Date-picker').timepicker({
         timeFormat: "HH:mm:ss:l"
     });
+    $( "table tbody" ).sortable( {
+        update: function( event, ui ) {
+        $(this).children().each(function(index) {
+                $(this).find('tr').last().html(index + 1)
+        });
+      }
+    });
 });
 
 var formData=[];
@@ -30,6 +37,10 @@ function renderTemplate(){
     formData
   }));
 }
-function showValue(index){
-    debugger;
+function showValue(val){
+    alert(JSON.stringify(val));
+}
+function deleteRow(index){
+    formData.splice(index, 1);
+    renderTemplate();
 }
