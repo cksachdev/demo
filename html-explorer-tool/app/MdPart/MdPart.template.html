@@ -34,7 +34,8 @@
     <div class="editor-part" ng-show="vm.editMode">
         <textarea class="height100" id="txt" contenteditable="true"></textarea>
     </div>
-    <div class="viewer-part markdown-body" ng-hide="vm.editMode"
-         ng-bind-html="vm.html | highlight:vm.filterStr">
-    </div>
+    <!-- <div class="viewer-part markdown-body" ng-hide="vm.editMode"
+             ng-bind-html="vm.html | highlight:vm.filterStr">
+        </div> -->
+    <webview class="viewer-part" id="webview" src="{{vm.filePath}}" nodeintegration></webview>
 </div>

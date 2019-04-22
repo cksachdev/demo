@@ -176,6 +176,14 @@ class MdPartController {
 
 		this.simplemde.toggleSideBySide();
 
+		const webview = document.querySelector('webview')
+		webview.addEventListener('will-navigate', (e) => {
+			const protocol = require('url').parse(e.url).protocol
+			if (protocol === 'http:' || protocol === 'https:') {
+				shell.openExternal(e.url)
+			}
+		});
+
 		this.simplemde.codemirror.on('change', (inst, changeObj) => {
 			this.text = this.simplemde.value();
 			if (changeObj.origin !== 'setValue') {
