@@ -3,23 +3,78 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/semantic.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 
 <body>
-    <script id="entry-template" type="text/x-handlebars-template">
-        <h3 class="ui center aligned header">Doubling Grid Container</h3>
-            <div class="ui three column doubling grid container">
-              {{#each fields}}
-              <div class="column"> <label>{{description}}</label>
-              <input type="{{inputType}} " class="ui segment " required="{{required}} "/>
+    <h3 class="ui center aligned header"></h3>
+    <form class="ui form segment">
+        <div class="two fields">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="name">
             </div>
-            {{/each}}
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="text" name="Date-picker" id="Date-picker" value=" " />
             </div>
-        </script>
-    <script src="js/jquery-3.3.0.js"></script>
-    <script src="js/handlebars-v4.1.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+            <div class="field">
+                <label>Range</label>
+                <input type="number" name="limit" min="0" max="10">
+            </div>
+        </div>
+        <div class="ui primary submit button" onclick="submitform()">Add</div>
+    </form>
+    
+    <div class="ui container" id="appendText"></div>
+            <script id="some-template" type="text/x-handlebars-template">
+        <table class="ui celled table">
+            <thead>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Range</th>
+                <th>Action</th>
+            </thead>
+            
+            <tbody>
+               
+                    {{#each formData}} 
+            <tr>
+            <td>
+            <h4>
+                    <div class="content">
+                    {{name}} 
+                       </div>
+                </h4>
+            </td>
+            <td>
+                    {{dob}} 
+            </td>
+            <td>
+                    {{Limit}} 
+            </td>
+            <td>
+            <button class="ui secondary basic button" onclick=showValue({{{json this}}})>show</button>
+            <button class="ui negative basic button" onclick=deleteRow({{@index}})>Dalete</button>
+            </td>
+        </tr>
+        {{/each}} 
+   
+            </tbody>
+        </table>
+    </script>
+    
+
+
+    <script src="js/lib/jquery-3.4.0.js"></script>
+    <script src="./js/lib/handlebars-v4.1.1.js"></script>
+    <script src="./js/lib/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-sliderAccess.js"></script>
     <script src="js/script.js"></script>
 </body>
 
