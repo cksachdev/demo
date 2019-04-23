@@ -177,6 +177,7 @@ class MdPartController {
 		this.simplemde.toggleSideBySide();
 
 		const webview = document.querySelector('webview')
+		
 		webview.addEventListener('will-navigate', (e) => {
 			const protocol = require('url').parse(e.url).protocol
 			if (protocol === 'http:' || protocol === 'https:') {
