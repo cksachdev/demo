@@ -1,0 +1,99 @@
+import { Appear, Notes, Code } from "mdx-deck";
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import dracula from "prism-react-renderer/themes/dracula"
+import { Center } from "./components";
+
+
+## What is mdx-deck?
+
+<Appear>
+    <div>
+        <Center>Just MDX</Center>
+        <br />
+    </div>
+    <div>
+        <Center><em>With</em> built-in utilities for creating presentation slides!</Center>
+    </div>
+</Appear>
+
+
+```notes
+MDX-deck is a tool that combines MDX
+```
+---
+
+<CodeSurfer
+  title="Basic Use - Markdown"
+  code={require("!raw-loader!./snippets/markdown.md")}
+  lang="markdown"
+  showNumbers={false}
+  theme={dracula}
+  steps={[
+    { notes: "file: ./snippets/markdown.md"},
+    { range: [1, 3], notes: "...headings" },
+    { range: [5, 7], notes: "...lists" },
+    { range: [1, 11], notes: "...it's all available!" },
+  ]}
+/>
+
+---
+# h1
+## h2
+### h3
+
+- First
+- Second
+- Third
+
+paragraph text
+
+[Github > MDX-Deck](https://github.com/jxnblk/mdx-deck)
+
+```notes
+rendered output
+```
+---
+
+<CodeSurfer
+  title="Basic Use - JSX"
+  code={require("!raw-loader!./snippets/html.js")}
+  lang="html"
+  showNumbers={false}
+  theme={dracula}
+  steps={[
+    { notes: "file: ./snippets/markdown.md"},
+    { range: [2, 4], notes: "...headings" },
+    { range: [6, 10], notes: "...lists" },
+    { range: [1, 15], notes: "...it's all available!" },
+  ]}
+/>
+
+```notes
+Difference in rendered output???
+
+- Your theme is applied only to the markdown you write.
+- JSX will not inherit theme styles.
+```
+
+---
+
+<div style={{
+    textAlign: "center"
+  }}>
+    <h1 style={{color: "#61dafb"}}>H1</h1>
+    <h2 style={{color: "#61dafb"}}>H2</h2>
+    <h3 style={{color: "#61dafb"}}>H3</h3>
+    <ul>
+        <li style={{ "list-style-type": "square", textAlign: "left" }}>First</li>
+        <li style={{ "list-style-type": "square", textAlign: "left" }}>Second</li>
+        <li style={{ "list-style-type": "square", textAlign: "left" }}>Third</li>
+    </ul>
+    <p>paragraph text</p>
+    <a style={{color: "#61dafb"}} href="https://github.com/jxnblk/mdx-deck">Github > MDX-Deck</a>
+</div>
+
+```notes
+rendered output
+```
+
+---

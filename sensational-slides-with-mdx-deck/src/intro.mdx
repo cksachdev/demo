@@ -1,0 +1,127 @@
+import { Head } from "mdx-deck";
+import { future, invert } from "mdx-deck/themes";
+import { Center } from "./components";
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import { Appear, Notes, Code } from "mdx-deck";
+import dracula from "prism-react-renderer/themes/dracula"
+
+<Head>
+    <title>How to MDX-Deck</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png" />
+    <link rel="stylesheet" href="./assets/css/imports.css" />
+</Head>
+
+# Underscore Handle Bar and JueryMY
+
+<Center>by Sachin Kumar Sahu</Center>
+
+---
+
+## Underscore Template
+
+- The Underscore.js is a JavaScript library that provides a lot of useful functions that helps in the programming in a big way like the map, filter, invoke etc even without using any built-in objects.
+
+**Why**
+- Each Web application uses underscore js for Utility classes.So we don't need use any extra JS to rendering template.
+
+**When**
+- One way data binding .
+- Useful for rendering complicated bits of HTML from JSON data sources
+
+---
+## Syntax
+
+- Only 2 things to keep in mind
+```js
+<%  %> - to execute some code
+<%= %> - to print some dynamic value in template
+```
+- Inside template code same as js
+```js
+ <% _.each(formData, function(val,key,index) { %>
+ <%= val.name %>
+ <% }); %>
+```
+---
+## HandleBar Template
+
+- Handlebars provides the power necessary to let you build semantic templates effectively with no frustration.
+
+**Why**
+- Handlebars allows to build semantic templates. Handlebars is largely compatible with Mustache templates..
+
+**When**
+- The most important use of Handlebars, and any templating engine, is to keep your HTML pages simple and clean and decoupled from the logic-based JavaScript files, and Handlebars serves this purpose well.
+
+---
+## Syntax
+
+- It is important that you put the template inside a <script></script> tag.
+- Syntax Oriented 
+```js
+ {{#times 10}}
+ <span>{{this}}</span>
+ {{/times}}
+```
+```js
+{{#ifCond v1 v2}}
+    {{v1}} is equal to {{v2}}
+{{else}}
+    {{v1}} is not equal to {{v2}}
+{{/ifCond}}
+```
+---
+## Difference
+
+<table>
+  <tr>
+    <th>
+        <Center>
+HandleBar JS
+</Center>
+    
+    </th>
+   
+     <th><Center>Underscore JS</Center></th>
+  </tr>
+  <tr>
+    <td><Center>
+It is important that you put the template inside a script tag.</Center>
+</td>
+    <td><Center>No need to put in inside the script tag</Center></td>
+  </tr>
+  <tr>
+    <td><Center>Syntax Oriented</Center></td>
+    <td><Center>Template Oriented</Center></td>
+   
+  </tr>
+  <tr>
+    <td><Center>
+Its logic-less templates provide a great path while rendering</Center>
+</td>
+    <td><Center>Underscore provides utility functions that support both the usual functional suspects like map, select , invoke.</Center></td>
+    
+  </tr>
+  <tr><td><Center>
+Its template Library engine we have to load each time.</Center>
+</td><td><Center>
+Any web application underscore loaded already.so no need to load separate library for template</Center>
+</td></tr>
+<tr><td><Center>Handlebars is Complex</Center></td><td><Center>Underscore is Simple</Center>
+</td></tr>
+</table>
+
+---
+## jquerymy
+
+- A lightweight jQuery plugin for complex two-way 
+data binding in real time..
+
+**Why**
+- jQuery.my recognizes both standard HTML controls and complex composites created using rich ui plugins. Controls built with jQuery UI, Select2, CodeMirror, Ace, Redactor, CLeditor, jQuery Mobile are supported out of the box.
+
+**When**
+- jQuery.my provides comprehensive validation, conditional formatting, complex dependencies, runtime form structure manipulation. $.my forms can run nested, each jQuery.my instance can be a composite control for parent form
+
+---
