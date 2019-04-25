@@ -8,16 +8,6 @@ const read = async (directory) => {
   return files;
 };
 
-read('./QuestionDemo/').then((files) => {
-  console.log(files.length);
-  read_files(files).then(fonts => {
-    fonts = _.uniq(fonts.fontFamily);
-    fonts = { 'fontFamily': fonts }
-    fs.writeFileSync('./final.json', JSON.stringify(fonts));
-  }); 
-});
-
-
 let read_files = async files => {
   return files.reduce((finalContent, filePath) => {
     let content = require(filePath);
@@ -27,6 +17,14 @@ let read_files = async files => {
   }, {"fontFamily": [] });
 }
 
+read('./QuestionDemo/').then((files) => {
+  console.log(files.length);
+  read_files(files).then(fonts => {
+    fonts = _.uniq(fonts.fontFamily);
+    fonts = { 'fontFamily': fonts }
+    fs.writeFileSync('./final.json', JSON.stringify(fonts));
+  });
+});
 
 
 
