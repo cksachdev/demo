@@ -1,0 +1,107 @@
+{
+    "subjectname": "EC1",
+    "questions": [
+        {
+            "font": [
+                "Arial Unicode MS",
+                " serif",
+                "Chanakya",
+                "Book Antiqua"
+            ],
+            "filename": "151601SK2-0003.HTML",
+            "filesize": "2.78 KiB"
+        },
+        {
+            "font": [
+                "Times New Roman",
+                " serif"
+            ],
+            "filename": "1516SA1_All_Footer.HTML",
+            "filesize": "1.05 KiB"
+        },
+        {
+            "font": [
+                "Times New Roman",
+                " serif",
+                "Consolas",
+                " monospace"
+            ],
+            "filename": "1516SA1_EC1_MSHeader_B.HTML",
+            "filesize": "4.23 KiB"
+        },
+        {
+            "font": [
+                "Consolas",
+                " monospace",
+                "Times New Roman",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_QPHeader_B.HTML",
+            "filesize": "4.81 KiB"
+        },
+        {
+            "font": [
+                "Times New Roman",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_SectionA.HTML",
+            "filesize": "1.45 KiB"
+        },
+        {
+            "font": [
+                "Times New Roman",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_SectionB.HTML",
+            "filesize": "1.32 KiB"
+        },
+        {
+            "font": [
+                "Times New Roman",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_SectionC.HTML",
+            "filesize": "1.33 KiB"
+        },
+        {
+            "font": [
+                "Times New Roman",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_StaticText1_B_QNO_09.HTML",
+            "filesize": "1.13 KiB"
+        },
+        {
+            "font": [
+                "Book Antiqua",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_StaticText2_B_QNO_08.HTML",
+            "filesize": "1.1 KiB"
+        },
+        {
+            "font": [
+                "Book Antiqua",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_StaticText2_B_QNO_10.HTML",
+            "filesize": "1.08 KiB"
+        },
+        {
+            "font": [
+                "Book Antiqua",
+                " serif"
+            ],
+            "filename": "1516SA1_EC1_StaticText2_B_QNO_11.HTML",
+            "filesize": "1.08 KiB"
+        },
+        {
+            "font": [
+                "Times New Roman",
+                " serif"
+            ],
+            "filename": "1516SA1_OR_E.HTML",
+            "filesize": "1.14 KiB"
+        }
+    ]
+}
