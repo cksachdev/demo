@@ -12,7 +12,7 @@ import dracula from "prism-react-renderer/themes/dracula"
     <link rel="stylesheet" href="./assets/css/imports.css" />
 </Head>
 
-# Underscore Handle Bar and JueryMY
+# Underscore Handle Bar and jquerymy
 
 <Center>by Sachin Kumar Sahu</Center>
 
@@ -30,20 +30,6 @@ import dracula from "prism-react-renderer/themes/dracula"
 - Useful for rendering complicated bits of HTML from JSON data sources
 
 ---
-## Syntax
-
-- Only 2 things to keep in mind
-```js
-<%  %> - to execute some code
-<%= %> - to print some dynamic value in template
-```
-- Inside template code same as js
-```js
- <% _.each(formData, function(val,key,index) { %>
- <%= val.name %>
- <% }); %>
-```
----
 ## HandleBar Template
 
 - Handlebars provides the power necessary to let you build semantic templates effectively with no frustration.
@@ -55,25 +41,122 @@ import dracula from "prism-react-renderer/themes/dracula"
 - The most important use of Handlebars, and any templating engine, is to keep your HTML pages simple and clean and decoupled from the logic-based JavaScript files, and Handlebars serves this purpose well.
 
 ---
-## Syntax
 
-- It is important that you put the template inside a <script></script> tag.
-- Syntax Oriented 
+## jquerymy
+
+- A lightweight jQuery plugin for complex two-way 
+data binding in real time..
+
+**Why**
+- jQuery.my recognizes both standard HTML controls and complex composites created using rich ui plugins. Controls built with jQuery UI, Select2, CodeMirror, Ace, Redactor, CLeditor, jQuery Mobile are supported out of the box.
+
+**When**
+- jQuery.my provides comprehensive validation, conditional formatting, complex dependencies, runtime form structure manipulation. $.my forms can run nested, each jQuery.my instance can be a composite control for parent form
+
+---
+## Form Creation
+<body>
+    <h3 class="ui center aligned header"></h3>
+    <form class="ui form segment">
+        <div class="two fields">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="name"/>
+            </div>
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="text" name="Date-picker" id="Date-picker" value=" " class="hasDatepicker"/>
+            </div>
+            <div class="field">
+                <label>Range</label>
+                <input type="number" name="limit" min="0" max="10"/>
+            </div>
+        </div>
+        <button class="ui primary submit button" onclick="submitform()">Add</button>
+    </form>
+    <div class="ui container">
+        <table class="ui celled table">
+            <thead>
+                <tr><th>Name</th>
+                <th>Date of Birth</th>
+                <th>Range</th>
+                <th>Action</th>
+            </tr></thead>
+           <tbody id="form-data-template" class="ui-sortable">       <tr>        <td>        <h4>                <div class="content">                sachin                    </div>            </h4>        </td>        <td>        15:15:22:180         </td>        <td>        1         </td>        <td>        <button class="ui secondary basic button" onclick="showValue({&quot;name&quot;:&quot;sachin&quot;,&quot;dob&quot;:&quot;15:15:22:180&quot;,&quot;Limit&quot;:&quot;1&quot;})">show</button>        <button class="ui negative basic button" onclick="deleteRow(0)">Dalete</button>        </td>    </tr>     </tbody>
+        </table>
+    </div>
+</body>
+---
+
+## Underscore Syntax
 ```js
- {{#times 10}}
- <span>{{this}}</span>
- {{/times}}
+ var template = _.template(
+ <% _.each(formData, function(val,key,index) { %> 
+            <td>    <%= val.name %> </td>
+        <td> <%= val.dob %></td>
+        <td><%= val.Limit %></td>
+        <td><button class="ui secondary basic button" onclick=showValue(<%= JSON.stringify(val) %>)>show</button>
+        <button class="ui negative basic button" onclick=deleteRow(<%=key%>)>Dalete</button></td>
+    <% }); %> )
 ```
+- Rendering template Logic
 ```js
-{{#ifCond v1 v2}}
-    {{v1}} is equal to {{v2}}
-{{else}}
-    {{v1}} is not equal to {{v2}}
-{{/ifCond}}
+ <div id="form-data-template"></div>
+ $("#form-data-template").html(template({formData }));
+```
+- Only 2 things to keep in mind
+```js
+<%  %> - to execute some code
+<%= %> - to print some dynamic value in template
 ```
 ---
-## Difference
+## HandleBar Syntax
+```js
+<script id="some-template" type="text/x-handlebars-template">
+    {{#each formData}} 
+<td>{{name}}</td>
+<td>{{dob}} </td>
+<td>{{Limit}} </td>
+<td><button class="ui secondary basic button" onclick=showValue({{{json this}}})>show</button>
+<button class="ui negative basic button" onclick=deleteRow({{@index}})>Dalete</button> </td>
+    {{/each}} </script>
+```
+- Pass Data on click function 
+```js
+  Handlebars.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+  });
+```
+- Rendering Template Logic
+```js
+ var source = $("#form-data-template").html(); 
+ var template = Handlebars.compile(source);
+ $('body').append(template(data));
+```
+---
 
+## jquerymy
+<CodeSurfer
+  title="Some Title"
+  code={require("!raw-loader!./snippets/jquerymy.js")}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: "Start with this note"},
+    { lines: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22], notes: "Note for the first step" },
+     { lines: [23,24,25,26,27,28], notes: "Note for the first step" },
+      { lines: [29,30,31,32,33,34,35,36,37,38,39,40], notes: "Note for the first step" },
+       { lines: [41,42,43,44,45,46,47,48,49,50], notes: "Note for the first step" },
+        { lines: [51,52,53,54,55,56,57,58,59,60,61,62,63,64], notes: "Note for the first step" },
+        { lines: [64,65,66,67,68,69,70,71,72,73,74,75,76,77], notes: "Note for the first step" },
+         { lines: [77,78,79,80,81,82,83,84,85,86,87,88,89], notes: "Note for the first step" },
+         { lines: [89,90,91,92,93,94,95,96,97,98], notes: "Note for the first step" },
+    { range: [2, 100] }
+  ]}
+/>
+---
+## Difference
 <table>
   <tr>
     <th>
@@ -113,15 +196,8 @@ Any web application underscore loaded already.so no need to load separate librar
 </table>
 
 ---
-## jquerymy
 
-- A lightweight jQuery plugin for complex two-way 
-data binding in real time..
-
-**Why**
-- jQuery.my recognizes both standard HTML controls and complex composites created using rich ui plugins. Controls built with jQuery UI, Select2, CodeMirror, Ace, Redactor, CLeditor, jQuery Mobile are supported out of the box.
-
-**When**
-- jQuery.my provides comprehensive validation, conditional formatting, complex dependencies, runtime form structure manipulation. $.my forms can run nested, each jQuery.my instance can be a composite control for parent form
-
----
+## Problem Statement in jquerymy
+- $.my works in browser and runs browser side of a webapp. $.my does not include router, net functions, auth and security functions and so on.
+- No help in google its always show jQuery result
+- Javascript and css dependencies are more take long time to load.
