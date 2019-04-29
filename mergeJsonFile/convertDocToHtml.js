@@ -3,6 +3,7 @@ const fs = require('fs');
 const _ = require('lodash');
 const util = require('util');
 const exec = util.promisify(require('child_process').execSync);
+const inputDir = "/home/vaibhav/Documents/RawData/"; 
 
 const read = async (directory) => {
   let files = await readdirp.promise(directory, { alwaysStat: false, fileFilter: '*.doc' });
@@ -12,7 +13,7 @@ const read = async (directory) => {
   return files;
 };
 
-read('/home/vaibhav/Documents/RawData/EC1Copy/').then((files) => {
+read(inputDir).then((files) => {
   console.log("Count :: " + files.length);
   files.forEach(async file => {
     var r = /[^\/]*$/;
