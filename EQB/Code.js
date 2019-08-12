@@ -11,9 +11,7 @@ function generateFolderTree() {
     getChildFolders(parent); 
 //    DocumentApp.getUi().alert("FINISHED");
   } catch (e) {   
-    // Logger.log(e.toString());
-    Logger.log("Hello");
-    Logger.log("Hell");
+    Logger.log(e.toString()); 
   }  
 }
 
