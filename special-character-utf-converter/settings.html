@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Font Special Character Table</title>
+    <link rel="stylesheet" href="bootstrap.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" crossorigin="anonymous" />
+  </head>
+  <body ng-app="myApp" ng-controller="myController" ng-cloak class="container-fluid">
+    <div class="align-items-center">
+      <div class="col-8">
+        <h2 class="font-weight-bold mb-3 mt-2">
+          Font Special Character to UTF-16 Table
+        </h2>
+        <hr />
+        <form>
+        
+              &nbsp;&nbsp;&nbsp;
+              <span
+                ng-show="siteSettings.length > 1"
+                ng-click="removeSiteSetting(selectedSiteIndex)"
+                class="icon-add-remove remove"
+                title="delete site"
+                >x</span
+              >
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Font Family<sup class="reuired-indicator">*</sup></th>
+                <th scope="col">Special Character Description<sup class="reuired-indicator">*</sup></th>
+                <th scope="col">Special Character<sup class="reuired-indicator">*</sup></th>
+                <th scope="col">Symbol Replaced with<sup class="reuired-indicator">*</sup></th>
+               
+               <th scope="col" class="icon-header"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                ng-repeat="setting in siteSettings[selectedSiteIndex].allSettings track by $index"
+              >
+                <th scope="row">{{$index + 1}}</th>
+                <td>
+                    <select
+                    class="custom-select select-setting-extra"
+                    ng-model="setting.FontvalueType"
+                    ng-options="valueType as valueType for valueType in FontvalueTypes"
+                  ></select>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    ng-model="setting.description"
+                    class="form-control"
+                    placeholder="Description"
+                  />
+                </td>
+                <td>
+                     <input
+                    type="text"
+                    ng-model="setting.specialCharacter"
+                    class="form-control"
+                    placeholder="Font Special character"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    ng-model="setting.symbolReplaced"
+                    class="form-control"
+                    placeholder="+ - * /"
+                  />
+                </td>
+            
+                <td>
+                  <span
+                    ng-show="siteSettings[selectedSiteIndex].allSettings.length > 1"
+                    ng-click="removeSetting($index)"><i class="far fa-minus-circle" style="color:red;font-size: 30px">x</i></span
+                  >
+                  <span ng-show="$last" ng-click="addSetting()"><i class="far fa-plus" style="color:green;font-size: 30px">+</i></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button
+            type="button"
+            class="btn btn-success"
+            ng-click="updateSettings()"
+            title="Update settings"
+          >
+            Save Special Character
+          </button>
+        </form>
+        <hr />
+      </div>
+    </div>
+
+    <script src="angular.min.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
+  </body>
+</html>
