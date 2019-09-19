@@ -4,10 +4,11 @@ const readdirp = require('readdirp');
 const _ = require('lodash');
 const fs = require('fs-extra');
 const path = require('path');
-const inputDir = '/Users/vaibhav/Documents/Review_1star_images/';
-const findDir = '/Users/vaibhav/Vaibhav/Documents/CBSE_HARD_DISK/DocData/';
-const outputDir = '/Users/vaibhav/Documents/Review_1star_documents/';
+const docDir = '/Users/vaibhav/Vaibhav/Documents/CBSE_HARD_DISK/DocData/';
+const outputDir = '/Users/vaibhav/Documents/Review_engg_documents/';
 const isStats = false;
+// List of filepath
+const inputFiles = [];
 
 const read = async (directory, filter) => {
   let files = await readdirp.promise(directory, {
@@ -27,27 +28,23 @@ const read = async (directory, filter) => {
   return files;
 };
 
-read(inputDir, '*.jpg').then(async files => {
+(async () => {
   let failedList = [];
-  for (let index = 0; index < files.length; index++) {
-    const file = files[index];
-    var filename = _.replace(file.filename, 'jpg', 'doc');
+  var r = /[^\/]*$/;
+  for (let index = 0; index < inputFiles.length; index++) {
+    var filepath = inputFiles[index];
+    var desDir = filepath.replace(r, '');
+    desDir = outputDir + desDir;
+    filepath = docDir + filepath;
+    filepath = _.replace(filepath, 'jpg', 'doc');
+    var filename = path.basename(filepath);
     try {
-      let docFiles = await read(findDir, filename);
-      for (let index = 0; index < docFiles.length; index++) {
-        const docFile = docFiles[index];
-        var r = /[^\/]*$/;
-        let outputPath = docFile.path.replace(r, '');
-        console.log('outputPath', outputPath);
-        let dDir = `${outputDir}${outputPath}`;
-        console.log('dDir', dDir);
-        fs.ensureDirSync(dDir);
-        let sDir = docFile.filepath;
-        await fs.copy(sDir, `${dDir}${docFile.filename}`);
-      }
+      await fs.ensureDir(desDir);
+      await fs.copy(filepath, `${desDir}${filename}`);
+      console.log(`file copied ${desDir}${filename}`);
     } catch (error) {
       failedList.push(filename);
     }
   }
-  console.log(failedList);
-});
+  console.log(`failed List :: ${failedList}`);
+})();
