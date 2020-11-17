@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulley frontend assignment</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="page-container horizontal">
+    <div class="page1">
+      <div class="container">
+        <h2 id="title">Let's Create your Cap Table!</h2>
+        <p class="description">Select how you would like to create your cap table.</p>
+        <button class="upload-btn horizontal" onclick="popup()">
+          <div class="icon"> <img src="images/excel.svg" alt=""></div>
+          <div class="upload-btn_text-container">
+            <h3 class="upload-btn_title">Upload Spreadsheet</h3>
+            <p class="upload-btn_description">Download a cap table spreadsheet template, fill it out, upload
+              completed template</p>
+          </div>
+          <div class="popup">WIP. Click to dismiss.</div>
+        </button>
+        <div class="divider ">
+          <div class="divider-line1"></div>
+          <p>Or</p>
+          <div class="divider-line2"></div>
+        </div>
+        <button class="upload-btn horizontal" onclick="toggleView(1)">
+          <div class="icon"><img class="icon-2" src="images/papers.svg" alt=""></div>
+          <div class="upload-btn_text-container">
+            <h3 class="upload-btn_title">Upload Investment Documents</h3>
+            <p class="upload-btn_description">Download a cap table spreadsheet template, fill it out, upload
+              completed template</p>
+          </div>
+          <span></span>
+
+        </button>
+      </div>
+    </div>
+
+
+    <div class="page2">
+      <div class="cotainer">
+        <h2>Let's Create your Cap Table!</h2>
+        <p class="description">Stuck on what to do? You can always come back here to check on what else you'll
+          need to add to complete your cap table.</p>
+
+        <div class="back" onclick="toggleView(2)">
+             <img src="images/back.svg" alt="">
+             <p class="back-text">Upload Investment Documents</p>
+        </div>
+        <ul class="list">
+          <li class="list-item horizontal">
+            <input type="radio" name="upload_group" class="upload-options">
+            <div class="list-text">
+              <h3 class="list-item_title">Add Founder Shares</h3>
+              <p class="list-item_description">Details on what founder share are</p>
+            </div>
+          </li>
+          <li class="list-item horizontal">
+            <input type="radio" name="upload_group" class="upload-options">
+            <div class="list-text">
+              <h3 class="list-item_title">Add Investments</h3>
+              <p class="list-item_description">What are Investments, when you would have/add them</p>
+            </div>
+          </li>
+          <li class="list-item horizontal">
+            <input type="radio" name="upload_group" class="upload-options">
+            <div class="list-text">
+              <h3 class="list-item_title">Add Equity Plans</h3>
+              <p class="list-item_description">Equity plan description</p>
+            </div>
+          </li>
+          <li class="list-item horizontal">
+            <input type="radio" name="upload_group" class="upload-options">
+            <div class="list-text">
+              <h3 class="list-item_title">Add Employee Grants</h3>
+              <p class="list-item_description">Employee grant description</p>
+            </div>
+          </li>
+          <li class="list-item horizontal">
+            <input type="radio" name="upload_group" class="upload-options">
+            <div class="list-text">
+              <h3 class="list-item_title">Review Cap Table</h3>
+              <p class="list-item_description">All done? Invite your lawyer to review your cap table</p>
+            </div>
+          </li>
+          <div class="divider-line"></div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    function popup() {
+      let popup = document.getElementsByClassName('popup');
+      if (popup[0].style.display == '' || popup[0].style.display == 'none') {
+        popup[0].style.display = 'block';
+        popup[0].style.transform = 'scale(2)';
+      } else {
+        popup[0].style.display = 'none';
+      }
+    }
+
+    function toggleView(currentView) {
+      let page1 = document.getElementsByClassName('page1');
+      let page2 = document.getElementsByClassName('page2');
+      switch (currentView) {
+        case 1:
+          page2[0].style.transform = 'translateX(0)';
+          page1[0].style.transform = 'translateX(-120%)';
+          break;
+        case 2:
+          page1[0].style.transform = 'translateX(0)';
+          // page2[0].style.transform = 'translateX(-100%)';
+          break;
+        default:
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>
